@@ -1,0 +1,29 @@
+🍕 FOODSHARE: Enterprise App from Home
+
+⚡ HOOK: "I built a complete enterprise application from my kitchen table"
+
+🏗️ WHAT I BUILT:
+• React frontend with Material-UI
+• Node.js/Express backend API
+• PostgreSQL database with persistence
+• Kubernetes orchestration
+• NGINX load balancing
+
+🚀 DEPLOY IN 5 MINUTES:
+git clone https://github.com/temitayocharles/foodshare-app.git
+cd foodshare-app
+kubectl apply -f foodshare/
+kubectl port-forward svc/ingress-nginx-controller 8080:80 -n ingress-nginx
+
+🎯 WHY IT MATTERS:
+• Proves enterprise DevOps skills
+• Demonstrates full-stack capabilities
+• Shows real problem-solving
+• Built from home, for free
+
+🔗 github.com/temitayocharles/foodshare-app
+
+#DevOps #Kubernetes #FullStack #Innovation #FoodShare
+
+👨‍💻 Temitayo Charles
+DevOps Engineer | Full-Stack Developer

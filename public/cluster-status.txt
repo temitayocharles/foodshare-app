@@ -1,0 +1,23 @@
+NAME                                      READY   STATUS    RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+pod/foodshare-backend-597db89bdd-mf976    1/1     Running   0          47m   10.244.0.21   tc-enterprise-control-plane   <none>           <none>
+pod/foodshare-frontend-5d8cc7f8dc-8b9h8   1/1     Running   0          68m   10.244.0.18   tc-enterprise-control-plane   <none>           <none>
+pod/postgres-699d6cc58b-d9wsx             1/1     Running   0          70m   10.244.0.16   tc-enterprise-control-plane   <none>           <none>
+
+NAME                         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/foodshare-backend    ClusterIP   10.96.171.83   <none>        3000/TCP   70m     app=foodshare-backend
+service/foodshare-frontend   ClusterIP   10.96.85.227   <none>        80/TCP     68m     app=foodshare-frontend
+service/kubernetes           ClusterIP   10.96.0.1      <none>        443/TCP    4h19m   <none>
+service/postgres             ClusterIP   10.96.204.73   <none>        5432/TCP   70m     app=postgres
+
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES               SELECTOR
+deployment.apps/foodshare-backend    1/1     1            1           70m   backend      node:16-alpine       app=foodshare-backend
+deployment.apps/foodshare-frontend   1/1     1            1           68m   frontend     nginx:alpine         app=foodshare-frontend
+deployment.apps/postgres             1/1     1            1           70m   postgres     postgres:13-alpine   app=postgres
+
+NAME                                            DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES               SELECTOR
+replicaset.apps/foodshare-backend-567c6665b7    0         0         0       61m   backend      node:16-alpine       app=foodshare-backend,pod-template-hash=567c6665b7
+replicaset.apps/foodshare-backend-597db89bdd    1         1         1       47m   backend      node:16-alpine       app=foodshare-backend,pod-template-hash=597db89bdd
+replicaset.apps/foodshare-backend-855859fb5d    0         0         0       64m   backend      node:16-alpine       app=foodshare-backend,pod-template-hash=855859fb5d
+replicaset.apps/foodshare-backend-b78665fc6     0         0         0       70m   backend      node:16-alpine       app=foodshare-backend,pod-template-hash=b78665fc6
+replicaset.apps/foodshare-frontend-5d8cc7f8dc   1         1         1       68m   frontend     nginx:alpine         app=foodshare-frontend,pod-template-hash=5d8cc7f8dc
+replicaset.apps/postgres-699d6cc58b             1         1         1       70m   postgres     postgres:13-alpine   app=postgres,pod-template-hash=699d6cc58b

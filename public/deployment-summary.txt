@@ -1,0 +1,23 @@
+# FoodShare Deployment Summary
+
+## Current Status
+NAME                                      READY   STATUS    RESTARTS   AGE
+pod/foodshare-backend-597db89bdd-mf976    1/1     Running   0          49m
+pod/foodshare-frontend-5d8cc7f8dc-8b9h8   1/1     Running   0          69m
+pod/postgres-699d6cc58b-d9wsx             1/1     Running   0          72m
+
+NAME                         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/foodshare-backend    ClusterIP   10.96.171.83   <none>        3000/TCP   71m
+service/foodshare-frontend   ClusterIP   10.96.85.227   <none>        80/TCP     69m
+service/kubernetes           ClusterIP   10.96.0.1      <none>        443/TCP    4h20m
+service/postgres             ClusterIP   10.96.204.73   <none>        5432/TCP   72m
+
+NAME                                          CLASS   HOSTS   ADDRESS        PORTS   AGE
+ingress.networking.k8s.io/foodshare-ingress   nginx   *       10.96.151.27   80      69m
+
+## Database Content
+ total_listings 
+----------------
+              1
+(1 row)
+

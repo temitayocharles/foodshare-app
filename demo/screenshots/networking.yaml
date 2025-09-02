@@ -1,0 +1,156 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"foodshare-ingress","namespace":"default"},"spec":{"ingressClassName":"nginx","rules":[{"http":{"paths":[{"backend":{"service":{"name":"foodshare-frontend","port":{"number":80}}},"path":"/","pathType":"Prefix"},{"backend":{"service":{"name":"foodshare-backend","port":{"number":3000}}},"path":"/api","pathType":"Prefix"}]}}]}}
+      nginx.ingress.kubernetes.io/use-regex: "true"
+    creationTimestamp: "2025-09-02T01:36:12Z"
+    generation: 9
+    name: foodshare-ingress
+    namespace: default
+    resourceVersion: "15462"
+    uid: 68a4da87-5a9f-492d-86bc-c2a8444ac42f
+  spec:
+    ingressClassName: nginx
+    rules:
+    - http:
+        paths:
+        - backend:
+            service:
+              name: foodshare-frontend
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+        - backend:
+            service:
+              name: foodshare-backend
+              port:
+                number: 3000
+          path: /api
+          pathType: Prefix
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.96.151.27
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"foodshare-backend","namespace":"default"},"spec":{"ports":[{"port":3000,"protocol":"TCP","targetPort":3000}],"selector":{"app":"foodshare-backend"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-09-02T01:33:58Z"
+    name: foodshare-backend
+    namespace: default
+    resourceVersion: "9863"
+    uid: bbd23d82-7aa0-4ff8-b5bc-bf21b3a9e2eb
+  spec:
+    clusterIP: 10.96.171.83
+    clusterIPs:
+    - 10.96.171.83
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+    selector:
+      app: foodshare-backend
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"foodshare-frontend","namespace":"default"},"spec":{"ports":[{"port":80,"protocol":"TCP","targetPort":80}],"selector":{"app":"foodshare-frontend"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-09-02T01:36:05Z"
+    name: foodshare-frontend
+    namespace: default
+    resourceVersion: "10050"
+    uid: e3872e53-5439-47db-ae77-8a86259ff552
+  spec:
+    clusterIP: 10.96.85.227
+    clusterIPs:
+    - 10.96.85.227
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: foodshare-frontend
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2025-09-01T22:24:52Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "236"
+    uid: 6596149c-5afc-47e6-84f1-bfaa7bdd2d11
+  spec:
+    clusterIP: 10.96.0.1
+    clusterIPs:
+    - 10.96.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 6443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"postgres","namespace":"default"},"spec":{"ports":[{"port":5432,"protocol":"TCP","targetPort":5432}],"selector":{"app":"postgres"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-09-02T01:33:49Z"
+    name: postgres
+    namespace: default
+    resourceVersion: "9808"
+    uid: e529a308-f103-427a-a772-ce56502c833c
+  spec:
+    clusterIP: 10.96.204.73
+    clusterIPs:
+    - 10.96.204.73
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 5432
+      protocol: TCP
+      targetPort: 5432
+    selector:
+      app: postgres
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

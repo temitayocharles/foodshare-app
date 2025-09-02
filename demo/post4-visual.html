@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Home Office = Enterprise Cloud</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 1200px;
+            height: 675px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 24px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .architecture {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            margin: 20px 0;
+        }
+
+        .node {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .home-node {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        }
+
+        .cluster-node {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            transform: scale(1.1);
+        }
+
+        .components-node {
+            background: linear-gradient(45deg, #45b7d1, #96c93d);
+        }
+
+        .node-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .node-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .arrow {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 20px;
+        }
+
+        .components-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .component-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .component-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .hashtags {
+            margin-top: 15px;
+            font-size: 16px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">My Home Office = Enterprise Cloud</div>
+            <div class="subtitle">The cage is broken. 🗝️</div>
+        </div>
+
+        <div class="architecture">
+            <div class="node home-node">
+                <div class="node-icon">🏠</div>
+                <div class="node-title">Home Office</div>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node cluster-node">
+                <div class="node-icon">☸️</div>
+                <div class="node-title">Kubernetes Cluster</div>
+                <div style="font-size: 14px; opacity: 0.8;">Smart • Adapts to any machine</div>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node components-node">
+                <div class="node-icon">🚀</div>
+                <div class="node-title">Enterprise Components</div>
+                <div class="components-list">
+                    <div class="component-item">
+                        <span class="component-icon">🔒</span>
+                        <span>Military-grade security</span>
+                    </div>
+                    <div class="component-item">
+                        <span class="component-icon">📊</span>
+                        <span>Full monitoring stack</span>
+                    </div>
+                    <div class="component-item">
+                        <span class="component-icon">🚀</span>
+                        <span>GitOps workflows</span>
+                    </div>
+                    <div class="component-item">
+                        <span class="component-icon">🌐</span>
+                        <span>Multi-cloud simulation</span>
+                    </div>
+                    <div class="component-item">
+                        <span class="component-icon">💾</span>
+                        <span>Persistent storage</span>
+                    </div>
+                    <div class="component-item">
+                        <span class="component-icon">🔄</span>
+                        <span>Service mesh</span>
+                    </div>
+                    <div class="component-item">
+                        <span class="component-icon">📈</span>
+                        <span>Auto-scaling</span>
+                    </div>
+                    <div class="component-item">
+                        <span class="component-icon">✅</span>
+                        <span>All production-ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>All running locally. All free. All production-ready.</div>
+            <div class="hashtags">#Kubernetes #DevOps #CloudNative</div>
+        </div>
+    </div>
+</body>
+</html>

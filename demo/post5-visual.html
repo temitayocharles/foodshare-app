@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Makes a DevOps Leader Exceptional?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+            color: white;
+            width: 1200px;
+            height: 675px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .journey {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .journey::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 1;
+        }
+
+        .journey-stage {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            min-width: 250px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stage-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .stage-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stage-description {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .arrow {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 15px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .skills-section {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .skills-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .skill-icon {
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .cta {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hashtags {
+            margin-top: 15px;
+            font-size: 16px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">What Makes a DevOps Leader Exceptional?</div>
+            <div class="subtitle">Deep technical expertise + vision to solve real-world problems</div>
+        </div>
+
+        <div class="journey">
+            <div class="journey-stage">
+                <div class="stage-icon">❓</div>
+                <div class="stage-title">The Problem</div>
+                <div class="stage-description">Food Waste Crisis<br>1.3B tons wasted yearly<br>828M people hungry</div>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="journey-stage">
+                <div class="stage-icon">🚀</div>
+                <div class="stage-title">The Solution</div>
+                <div class="stage-description">FoodShare App<br>Connects surplus to need<br>Built in home lab</div>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="journey-stage">
+                <div class="stage-icon">🌟</div>
+                <div class="stage-title">The Impact</div>
+                <div class="stage-description">Community Feeding<br>Sustainability<br>Real-world change</div>
+            </div>
+        </div>
+
+        <div class="skills-section">
+            <div class="skills-title">Skills Gained Through Freedom</div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">🏗️</span>
+                    <span>Enterprise Infrastructure</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🧪</span>
+                    <span>Unlimited Experimentation</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🎨</span>
+                    <span>Creative Problem Solving</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">❤️</span>
+                    <span>Technology for Good</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="cta">What's the problem you're passionate about solving? 🌟</div>
+            <div>The best solutions come from those who can experiment freely.</div>
+            <div class="hashtags">#DevOps #Innovation #Leadership #Kubernetes</div>
+        </div>
+    </div>
+</body>
+</html>

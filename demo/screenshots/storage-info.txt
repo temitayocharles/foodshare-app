@@ -1,0 +1,6 @@
+NAME                                 STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE
+persistentvolumeclaim/postgres-pvc   Bound    pvc-1f69d183-f1e5-4d25-ab25-f8703154f9b7   5Gi        RWO            standard       <unset>                 71m   Filesystem
+
+NAME                                                        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                     STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE     VOLUMEMODE
+persistentvolume/pvc-0ea3b033-3ccf-4731-b33b-80cba83f7356   5Gi        RWO            Delete           Bound    food-share/postgres-pvc   standard       <unset>                          3h48m   Filesystem
+persistentvolume/pvc-1f69d183-f1e5-4d25-ab25-f8703154f9b7   5Gi        RWO            Delete           Bound    default/postgres-pvc      standard       <unset>                          71m     Filesystem

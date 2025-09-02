@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking the DevOps Cage</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 1200px;
+            height: 675px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+        }
+
+        .left-side {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .right-side {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .title {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .problem-title {
+            color: #ff6b6b;
+        }
+
+        .solution-title {
+            color: #4ecdc4;
+        }
+
+        .emoji {
+            font-size: 64px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .bullet-list {
+            flex-grow: 1;
+        }
+
+        .bullet-item {
+            font-size: 18px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .bullet-icon {
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .problem-icon {
+            color: #ff6b6b;
+        }
+
+        .solution-icon {
+            color: #4ecdc4;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .bottom-section {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hashtags {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="emoji">😩</div>
+            <div class="title problem-title">THE DEVOPS CAGE</div>
+            <div class="bullet-list">
+                <div class="bullet-item">
+                    <span class="bullet-icon problem-icon">❌</span>
+                    <span>Can't experiment outside 9-5</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon problem-icon">❌</span>
+                    <span>Cloud costs kill your ideas</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon problem-icon">❌</span>
+                    <span>Stuck with slow company gear</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon problem-icon">❌</span>
+                    <span>Security blocks innovation</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon problem-icon">❌</span>
+                    <span>No time for real learning</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="right-side">
+            <div class="emoji">🏠</div>
+            <div class="title solution-title">BREAKING FREE</div>
+            <div class="bullet-list">
+                <div class="bullet-item">
+                    <span class="bullet-icon solution-icon">✅</span>
+                    <span>Unlimited experimentation</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon solution-icon">✅</span>
+                    <span>Zero cloud costs</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon solution-icon">✅</span>
+                    <span>Enterprise-grade tools</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon solution-icon">✅</span>
+                    <span>Deploy anytime, anywhere</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon solution-icon">✅</span>
+                    <span>Home office freedom</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="question">What's your biggest DevOps frustration? 💭</div>
+            <div class="hashtags">#DevOps #Kubernetes #Innovation</div>
+        </div>
+    </div>
+</body>
+</html></content>
+<parameter name="filePath">/Volumes/256-B/tc-enterprise-devops-platform/foodshare-public-repo/post1-visual.html

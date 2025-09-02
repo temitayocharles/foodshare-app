@@ -1,0 +1,160 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foodshare-frontend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: foodshare-frontend
+  template:
+    metadata:
+      labels:
+        app: foodshare-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: frontend-content
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: frontend-content
+          configMap:
+            name: frontend-content
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-content
+  namespace: default
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FoodShare - Reducing Food Waste</title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@mui/material@5.14.0/umd/material-ui.production.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <style>
+            body { font-family: 'Roboto', sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+            .container { max-width: 1200px; margin: 0 auto; }
+            .header { background: #4caf50; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
+            .form, .listings { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+            .food-item { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+            input, button { display: block; width: 100%; margin-bottom: 10px; padding: 8px; }
+            button { background: #4caf50; color: white; border: none; cursor: pointer; }
+            button:hover { background: #45a049; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🍽️ FoodShare - Reducing Food Waste</h1>
+                <p>Connecting restaurants with leftover food to communities in need</p>
+            </div>
+
+            <div class="form">
+                <h2>Add Food Listing</h2>
+                <form id="foodForm">
+                    <input type="text" id="restaurant" placeholder="Restaurant Name" required>
+                    <input type="text" id="food_type" placeholder="Food Type" required>
+                    <input type="text" id="quantity" placeholder="Quantity" required>
+                    <input type="date" id="expiry_date" required>
+                    <input type="text" id="location" placeholder="Location" required>
+                    <input type="text" id="allergies" placeholder="Allergies (comma-separated)">
+                    <button type="submit">Add Food Listing</button>
+                </form>
+            </div>
+
+            <div class="listings">
+                <h2>Available Food</h2>
+                <div id="foodList">Loading...</div>
+            </div>
+        </div>
+
+        <script>
+            const API_BASE = '/api';
+
+            async function loadFoodListings() {
+                try {
+                    const response = await fetch(`${API_BASE}/food`);
+                    const foods = await response.json();
+                    const foodList = document.getElementById('foodList');
+                    
+                    if (foods.length === 0) {
+                        foodList.innerHTML = '<p>No food listings available yet.</p>';
+                        return;
+                    }
+                    
+                    foodList.innerHTML = foods.map(food => `
+                        <div class="food-item">
+                            <h3>${food.restaurant}</h3>
+                            <p><strong>Type:</strong> ${food.food_type}</p>
+                            <p><strong>Quantity:</strong> ${food.quantity}</p>
+                            <p><strong>Location:</strong> ${food.location}</p>
+                            <p><strong>Expires:</strong> ${new Date(food.expiry_date).toLocaleDateString()}</p>
+                            ${food.allergies ? `<p><strong>Allergies:</strong> ${food.allergies}</p>` : ''}
+                        </div>
+                    `).join('');
+                } catch (error) {
+                    document.getElementById('foodList').innerHTML = '<p>Error loading food listings.</p>';
+                }
+            }
+
+            document.getElementById('foodForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    restaurant: document.getElementById('restaurant').value,
+                    food_type: document.getElementById('food_type').value,
+                    quantity: document.getElementById('quantity').value,
+                    expiry_date: document.getElementById('expiry_date').value,
+                    location: document.getElementById('location').value,
+                    allergies: document.getElementById('allergies').value
+                };
+
+                try {
+                    const response = await fetch(`${API_BASE}/food`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    if (response.ok) {
+                        document.getElementById('foodForm').reset();
+                        loadFoodListings();
+                        alert('Food listing added successfully!');
+                    } else {
+                        alert('Error adding food listing.');
+                    }
+                } catch (error) {
+                    alert('Error adding food listing.');
+                }
+            });
+
+            loadFoodListings();
+        </script>
+    </body>
+    </html>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: foodshare-frontend
+  namespace: default
+spec:
+  selector:
+    app: foodshare-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

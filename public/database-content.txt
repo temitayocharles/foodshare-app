@@ -1,0 +1,5 @@
+ id | restaurant  | food_type | quantity | expiry_date |   location    |         allergies          |         created_at         
+----+-------------+-----------+----------+-------------+---------------+----------------------------+----------------------------
+  1 | Pizza Pizza | PIzza     | 2        | 2025-09-01  | Shelburne, ON | peanuts, extra fat, cheese | 2025-09-02 02:03:19.426455
+(1 row)
+
